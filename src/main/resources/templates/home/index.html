@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Yatzy startside</title>
+</head>
+<body>
+<h1>Yatzy!</h1>
+<form action="/typePlayer1" method="get">
+    <button>Tilføj spiller</button>
+</form>
+<form action="/deleteAll" method="get">
+    <button>Slet alle spillere</button>
+</form>
+<br>
+
+<table>
+    <thead><td>Player name</td><td>1'ere</td><td>2'ere</td><td>3'ere</td><td>4'ere</td><td>5'ere</td><td>6'ere</td></thead>
+    <tr th:each="yatzy : ${players}">
+    <td th:text="${yatzy.playerName}"></td>
+    <td th:text="${yatzy.ones}"></td>
+    <td th:text="${yatzy.twos}"></td>
+    <td th:text="${yatzy.threes}"></td>
+    <td th:text="${yatzy.fours}"></td>
+    <td th:text="${yatzy.fives}"></td>
+    <td th:text="${yatzy.sixes}"></td>
+        <td>
+            <form action="/addScore" method="get">
+                <input type="hidden" name="playerName" th:value="${yatzy.playerName}">
+                <button type="submit">Tilføj score</button>
+            </form>
+        </td>
+    </tr>
+
+
+</table>
+<hr>
+<br>
+<br>
+
+<form action="/rollDices" method="get">
+    <button type="submit">Kast terning(er)!</button>
+</form>
+
+
+</body>
+</html>

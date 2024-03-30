@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add score</title>
+</head>
+<body>
+<h1>Add score</h1>
+<table>
+    <tr>
+        <td>
+            <form action="/addScore" method="post">
+                <input type="hidden" name="playerName" th:value="${yatzy.playerName}">
+                <td>1'ere</td><td><input type="text" name="ones" th:value="${yatzy.ones}"></td><td><button type="submit">Indsæt</button></td>
+
+            </form>
+        </td>
+        <td>
+            <form action="/addScore2" method="post">
+                <input type="hidden" name="playerName" th:value="${yatzy.playerName}">
+                <td>2'ere</td><td><input type="text" name="twos" th:value="${yatzy.twos}"></td><td><button type="submit">Indsæt</button></td>
+
+            </form>
+        </td>
+        <td>
+            <form action="/addScore3" method="post">
+                <input type="hidden" name="playerName" th:value="${yatzy.playerName}">
+                <td>3'ere</td><td><input type="text" name="threes" th:value="${yatzy.threes}"></td><td><button type="submit">Indsæt</button></td>
+
+            </form>
+        </td>
+        <td>
+            <form action="/addScore4" method="post">
+                <input type="hidden" name="playerName" th:value="${yatzy.playerName}">
+                <td>4'ere</td><td><input type="text" name="fours" th:value="${yatzy.fours}"></td><td><button type="submit">Indsæt</button></td>
+
+            </form>
+        </td>
+        <td>
+            <form action="/addScore5" method="post">
+                <input type="hidden" name="playerName" th:value="${yatzy.playerName}">
+                <td>5'ere</td><td><input type="text" name="fives" th:value="${yatzy.fives}"></td><td> <button type="submit">Indsæt</button></td>
+
+            </form>
+        </td>
+        <td>
+            <form action="/addScore6" method="post">
+                <input type="hidden" name="playerName" th:value="${yatzy.playerName}">
+                <td>6'ere</td><td><input type="text" name="sixes" th:value="${yatzy.sixes}"></td><td><button type="submit">Indsæt</button></td>
+            </form>
+        </td>
+    </tr>
+</table>
+</body>
+</html>
