@@ -5,8 +5,95 @@
     <title>roll dices</title>
 </head>
 <body>
-<h1>Dine terninger</h1>
-
+<h1>Valgte terninger</h1>
+<ul>
+    <li th:each="number : ${chosenNumbers}" th:text="${number}"></li>
+</ul>
+<h2>Dit kast</h2>
+<td>Terning1</td>
+<br>
+<td th:if="${diceroll.value1 != 0}">
+    <span th:text="${diceroll.value1}"></span>
+    <form action="/chooseDices" method="post">
+        <input type="hidden" name="diceNumber" value="1">
+        <input type="hidden" name="value" th:value="${diceroll.value1}">
+        <button type="submit">Vælg</button>
+    </form>
+</td>
+<br>
+<hr>
+<td>Terning2</td>
+<br>
+<td th:if="${diceroll.value2 != 0}">
+    <span th:text="${diceroll.value2}"></span>
+    <form action="/chooseDices" method="post">
+        <input type="hidden" name="diceNumber" value="2">
+        <input type="hidden" name="value" th:value="${diceroll.value2}">
+        <button type="submit">Vælg</button>
+    </form>
+</td>
+<br>
+<hr>
+<td>Terning3</td>
+<br>
+<td th:if="${diceroll.value3 != 0}">
+    <span th:text="${diceroll.value3}"></span>
+    <form action="/chooseDices" method="post">
+        <input type="hidden" name="diceNumber" value="3">
+        <input type="hidden" name="value" th:value="${diceroll.value3}">
+        <button type="submit">Vælg</button>
+    </form>
+</td>
+<br>
+<hr>
+<td>Terning4</td>
+<br>
+<td th:if="${diceroll.value4 != 0}">
+    <span th:text="${diceroll.value4}"></span>
+    <form action="/chooseDices" method="post">
+        <input type="hidden" name="diceNumber" value="4">
+        <input type="hidden" name="value" th:value="${diceroll.value4}">
+        <button type="submit">Vælg</button>
+    </form>
+</td>
+<br>
+<hr>
+<td>Terning5</td>
+<br>
+<td th:if="${diceroll.value5 != 0}">
+    <span th:text="${diceroll.value5}"></span>
+    <form action="/chooseDices" method="post">
+        <input type="hidden" name="diceNumber" value="5">
+        <input type="hidden" name="value" th:value="${diceroll.value5}">
+        <button type="submit">Vælg</button>
+    </form>
+</td>
+<br>
+<hr>
+<td>Terning6</td>
+<br>
+<td th:if="${diceroll.value6 != 0}">
+    <span th:text="${diceroll.value6}"></span>
+    <form action="/chooseDices" method="post">
+        <input type="hidden" name="diceNumber" value="6">
+        <input type="hidden" name="value" th:value="${diceroll.value6}">
+        <button type="submit">Vælg</button>
+    </form>
+</td>
+<br>
+<hr>
+<br>
+<br>
+<td>
+<form action="rollDices2" method="get" th:if="${rollCount < 3}">
+    <button type="submit">Slå igen!</button>
+</form>
+</td>
+<td>
+    <form action="/" method="get">
+        <button type="submit">Afslut tur og indsæt score</button>
+    </form>
+</td>
 
 
 </body>

@@ -1,6 +1,6 @@
 package com.example.hellofullstack.services;
 
-import com.example.hellofullstack.models.Dice;
+import com.example.hellofullstack.models.Diceroll;
 import com.example.hellofullstack.models.Yatzy;
 import com.example.hellofullstack.repositories.YatzyRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -48,14 +48,27 @@ public class YatzyService {
         yatzyRepository.insertValue5(fives, playerName);
     }
     public void insertValue6(String sixes, String playerName) {
-        yatzyRepository.insertValue2(sixes, playerName);
+        yatzyRepository.insertValue6(sixes, playerName);
     }
 
     public void deleteAll() {
         yatzyRepository.deleteAll();
     }
 
-    public Dice getDices() {
+    public Diceroll getDices() {
         return yatzyRepository.getDices();
+    }
+
+    public void diceRoll(int value1, int value2, int value3, int value4, int value5, int value6) {
+        yatzyRepository.diceRoll(value1, value2, value3, value4, value5, value6);
+    }
+
+
+    public void deleteDice(int diceNumber) {
+       yatzyRepository.deleteDice(diceNumber);
+    }
+
+    public void deletePreviousRoll() {
+        yatzyRepository.deletePreviousRoll();
     }
 }

@@ -1,5 +1,6 @@
 package com.example.hellofullstack.controllers;
 
+import com.example.hellofullstack.models.Diceroll;
 import com.example.hellofullstack.services.YatzyService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -8,8 +9,16 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
+
 @Controller
 public class YatzyController {
+    int rollCount = 1;
+    List<Integer> chosenNumbers = new ArrayList<>();
+    int amountOfDices = 6;
+    Random random = new Random();
     @Autowired
     private YatzyService yatzyService;
 
@@ -78,8 +87,51 @@ public class YatzyController {
 
     @GetMapping("/rollDices")
     public String rollDices(Model model) {
+        if (amountOfDices == 6) {
+            int value1 = random.nextInt(6) + 1;
+            int value2 = random.nextInt(6) + 1;
+            int value3 = random.nextInt(6) + 1;
+            int value4 = random.nextInt(6) + 1;
+            int value5 = random.nextInt(6) + 1;
+            int value6 = random.nextInt(6) + 1;
+            yatzyService.diceRoll(value1, value2, value3, value4, value5, value6);
+        }
+        model.addAttribute("chosenNumbers", chosenNumbers);
         model.addAttribute(yatzyService.getDices());
     return "home/rollDices";
+    }
+
+    @GetMapping("/rollDices2")
+    public String rollDices2(Model model) {
+        yatzyService.deletePreviousRoll();
+        rollCount++;
+
+        int[] remainingDices = new int[6];
+
+        for (int i = 0; i < amountOfDices; i++) {
+            remainingDices[i] = random.nextInt(6) + 1;
+        }
+
+        for (int i = amountOfDices; i < 6; i++) {
+            remainingDices[i] = 0;
+        }
+
+
+        yatzyService.diceRoll(remainingDices[0], remainingDices[1], remainingDices[2], remainingDices[3], remainingDices[4], remainingDices[5]);
+
+        model.addAttribute("chosenNumbers", chosenNumbers);
+        model.addAttribute(yatzyService.getDices());
+        model.addAttribute("rollCount", rollCount);
+        return "home/rollDices";
+    }
+
+
+    @PostMapping("/chooseDices")
+    public String chooseDices(@RequestParam int diceNumber, @RequestParam int value) {
+        chosenNumbers.add(value);
+        amountOfDices--;
+        yatzyService.deleteDice(diceNumber);
+        return "redirect:/rollDices";
     }
 
 
