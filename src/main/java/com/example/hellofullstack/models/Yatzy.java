@@ -4,30 +4,57 @@ package com.example.hellofullstack.models;
 
 public class Yatzy {
    private String playerName;
-   private String ones;
-   private String twos;
-   private String threes;
-   private String fours;
-   private String fives;
-   private String sixes;
-   private String onePair;
-   private String twoPair;
-   private String threePair;
-   private String threeOfAKind;
-   private String fourOfAKind;
-   private String twoXThree;
-   private String littleStraight;
-   private String mediumStraight;
-   private String royaleStraight;
-   private String fullHouse;
-   private String chance;
-   private String yatzy;
+    private int ones;
+    private int twos;
+    private int threes;
+    private int fours;
+    private int fives;
+    private int sixes;
+    private int sum;
+    private int bonus;
+    private int onePair;
+    private int twoPair;
+    private int threePair;
+    private int threeOfAKind;
+    private int fourOfAKind;
+    private int twoXThree;
+    private int littleStraight;
+    private int mediumStraight;
+    private int royaleStraight;
+    private int fullHouse;
+    private int chance;
+    private int yatzy;
+    private int total;
 
 
 
    public Yatzy() {
 
    }
+
+    public int getSum() {
+        return sum;
+    }
+
+    public void setSum(int sum) {
+        this.sum = sum;
+    }
+
+    public int getBonus() {
+        return bonus;
+    }
+
+    public void setBonus(int bonus) {
+        this.bonus = bonus;
+    }
+
+    public int getTotal() {
+        return total;
+    }
+
+    public void setTotal(int total) {
+        this.total = total;
+    }
 
     public String getPlayerName() {
         return playerName;
@@ -37,147 +64,148 @@ public class Yatzy {
         this.playerName = playerName;
     }
 
-    public String getOnes() {
+    public int getOnes() {
         return ones;
     }
 
-    public void setOnes(String ones) {
+    public void setOnes(int ones) {
         this.ones = ones;
     }
 
-    public String getTwos() {
+    public int getTwos() {
         return twos;
     }
 
-    public void setTwos(String twos) {
+    public void setTwos(int twos) {
         this.twos = twos;
     }
 
-    public String getThrees() {
+    public int getThrees() {
         return threes;
     }
 
-    public void setThrees(String threes) {
+    public void setThrees(int threes) {
         this.threes = threes;
     }
 
-    public String getFours() {
+    public int getFours() {
         return fours;
     }
 
-    public void setFours(String fours) {
+    public void setFours(int fours) {
         this.fours = fours;
     }
 
-    public String getFives() {
+    public int getFives() {
         return fives;
     }
 
-    public void setFives(String fives) {
+    public void setFives(int fives) {
         this.fives = fives;
     }
 
-    public String getSixes() {
+    public int getSixes() {
         return sixes;
     }
 
-    public void setSixes(String sixes) {
+    public void setSixes(int sixes) {
         this.sixes = sixes;
     }
 
-    public String getOnePair() {
+    public int getOnePair() {
         return onePair;
     }
 
-    public void setOnePair(String onePair) {
+    public void setOnePair(int onePair) {
         this.onePair = onePair;
     }
 
-    public String getTwoPair() {
+    public int getTwoPair() {
         return twoPair;
     }
 
-    public void setTwoPair(String twoPair) {
+    public void setTwoPair(int twoPair) {
         this.twoPair = twoPair;
     }
 
-    public String getThreePair() {
+    public int getThreePair() {
         return threePair;
     }
 
-    public void setThreePair(String threePair) {
+    public void setThreePair(int threePair) {
         this.threePair = threePair;
     }
 
-    public String getThreeOfAKind() {
+    public int getThreeOfAKind() {
         return threeOfAKind;
     }
 
-    public void setThreeOfAKind(String threeOfAKind) {
+    public void setThreeOfAKind(int threeOfAKind) {
         this.threeOfAKind = threeOfAKind;
     }
 
-    public String getFourOfAKind() {
+    public int getFourOfAKind() {
         return fourOfAKind;
     }
 
-    public void setFourOfAKind(String fourOfAKind) {
+    public void setFourOfAKind(int fourOfAKind) {
         this.fourOfAKind = fourOfAKind;
     }
 
-    public String getTwoXThree() {
+    public int getTwoXThree() {
         return twoXThree;
     }
 
-    public void setTwoXThree(String twoXThree) {
+    public void setTwoXThree(int twoXThree) {
         this.twoXThree = twoXThree;
     }
 
-    public String getLittleStraight() {
+    public int getLittleStraight() {
         return littleStraight;
     }
 
-    public void setLittleStraight(String littleStraight) {
+    public void setLittleStraight(int littleStraight) {
         this.littleStraight = littleStraight;
     }
 
-    public String getMediumStraight() {
+    public int getMediumStraight() {
         return mediumStraight;
     }
 
-    public void setMediumStraight(String mediumStraight) {
+    public void setMediumStraight(int mediumStraight) {
         this.mediumStraight = mediumStraight;
     }
 
-    public String getRoyaleStraight() {
+    public int getRoyaleStraight() {
         return royaleStraight;
     }
 
-    public void setRoyaleStraight(String royaleStraight) {
+    public void setRoyaleStraight(int royaleStraight) {
         this.royaleStraight = royaleStraight;
     }
 
-    public String getFullHouse() {
+    public int getFullHouse() {
         return fullHouse;
     }
 
-    public void setFullHouse(String fullHouse) {
+    public void setFullHouse(int fullHouse) {
         this.fullHouse = fullHouse;
     }
 
-    public String getChance() {
+    public int getChance() {
         return chance;
     }
 
-    public void setChance(String chance) {
+    public void setChance(int chance) {
         this.chance = chance;
     }
 
-    public String getYatzy() {
+    public int getYatzy() {
         return yatzy;
     }
 
-    public void setYatzy(String yatzy) {
+    public void setYatzy(int yatzy) {
         this.yatzy = yatzy;
     }
 }
+

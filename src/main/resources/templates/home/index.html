@@ -16,8 +16,8 @@
 
 <table>
     <thead><td>Player name</td><td>1'ere</td><td>2'ere</td><td>3'ere</td><td>4'ere</td><td>5'ere</td><td>6'ere</td>
-    <td>1par</td><td>2par</td><td>3par</td><td>3ens</td><td>4ens</td><td>2x3</td><td>1-5</td>
-    <td>2-6</td><td>1-6</td><td>hus</td><td>chance</td><td>yatzy</td></thead>
+    <td>Sum</td><td>Bonus</td><td>1par</td><td>2par</td><td>3par</td><td>3ens</td><td>4ens</td><td>2x3</td><td>1-5</td>
+    <td>2-6</td><td>1-6</td><td>Hus</td><td>Chance</td><td>Yatzy</td><td>Total</td></thead>
     <tr th:each="yatzy : ${players}">
     <td th:text="${yatzy.playerName}"></td>
     <td th:text="${yatzy.ones}"></td>
@@ -26,6 +26,8 @@
     <td th:text="${yatzy.fours}"></td>
     <td th:text="${yatzy.fives}"></td>
     <td th:text="${yatzy.sixes}"></td>
+    <td th:text="${yatzy.sum}"></td>
+    <td th:text="${yatzy.bonus}"></td>
     <td th:text="${yatzy.onePair}"></td>
     <td th:text="${yatzy.twoPair}"></td>
     <td th:text="${yatzy.threePair}"></td>
@@ -38,6 +40,7 @@
     <td th:text="${yatzy.fullHouse}"></td>
     <td th:text="${yatzy.chance}"></td>
     <td th:text="${yatzy.yatzy}"></td>
+    <td th:text="${yatzy.total}"></td>
         <td>
             <form action="/addScore" method="get">
                 <input type="hidden" name="playerName" th:value="${yatzy.playerName}">

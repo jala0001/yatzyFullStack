@@ -45,81 +45,100 @@ public class YatzyService {
         yatzyRepository.deletePreviousRoll();
     }
 
-    public void insertPlayer1(String playerName, String ones, String twos,
-                              String threes, String fours, String fives, String sixes,
-                              String onePair, String twoPair, String threePair,
-                              String threeOfAKind, String fourOfAKind, String twoXThree,
-                              String littleStraight, String mediumStraight, String royaleStraight,
-                              String fullHouse, String chance, String yatzy) {
-        yatzyRepository.insertPlayer1(playerName, ones, twos, threes, fours, fives, sixes, onePair,
+    public void insertPlayer1(String playerName, int ones, int twos,
+                              int threes, int fours, int fives, int sixes,
+                              int sum, int bonus,
+                              int onePair, int twoPair, int threePair,
+                              int threeOfAKind, int fourOfAKind, int twoXThree,
+                              int littleStraight, int mediumStraight, int royaleStraight,
+                              int fullHouse, int chance, int yatzy, int total) {
+        yatzyRepository.insertPlayer1(playerName, ones, twos, threes, fours, fives, sixes, sum, bonus, onePair,
                 twoPair, threePair, threeOfAKind, fourOfAKind, twoXThree, littleStraight, mediumStraight,
-                royaleStraight, fullHouse, chance, yatzy);
+                royaleStraight, fullHouse, chance, yatzy, total);
     }
 
-    public void insertValue(String ones, String playerName) {
+
+    public void insertValue(int ones, String playerName) {
         yatzyRepository.insertValue(ones, playerName);
     }
 
-    public void insertValue2(String twos, String playerName) {
+    public void insertValue2(int twos, String playerName) {
         yatzyRepository.insertValue2(twos, playerName);
     }
-    public void insertValue3(String threes, String playerName) {
+
+    public void insertValue3(int threes, String playerName) {
         yatzyRepository.insertValue3(threes, playerName);
     }
-    public void insertValue4(String fours, String playerName) {
+
+    public void insertValue4(int fours, String playerName) {
         yatzyRepository.insertValue4(fours, playerName);
     }
-    public void insertValue5(String fives, String playerName) {
+
+    public void insertValue5(int fives, String playerName) {
         yatzyRepository.insertValue5(fives, playerName);
     }
-    public void insertValue6(String sixes, String playerName) {
+
+    public void insertValue6(int sixes, String playerName) {
         yatzyRepository.insertValue6(sixes, playerName);
     }
-    public void insertValueOnePair(String onePair, String playerName) {
+
+    public void insertValueOnePair(int onePair, String playerName) {
         yatzyRepository.insertValueOnePair(onePair, playerName);
     }
-    public void insertValueTwoPair(String twoPair, String playerName) {
+
+    public void insertValueTwoPair(int twoPair, String playerName) {
         yatzyRepository.insertValueTwoPair(twoPair, playerName);
     }
 
-
-    public void insertValueThreePair(String threePair, String playerName) {
+    public void insertValueThreePair(int threePair, String playerName) {
         yatzyRepository.insertValueThreePair(threePair, playerName);
     }
 
-    public void insertValueLittleStraight(String littleStraight, String playerName) {
+    public void insertValueLittleStraight(int littleStraight, String playerName) {
         yatzyRepository.insertValueLittleStraight(littleStraight, playerName);
     }
 
-    public void insertValueMediumStraight(String mediumStraight, String playerName) {
+    public void insertValueMediumStraight(int mediumStraight, String playerName) {
         yatzyRepository.insertValueMediumStraight(mediumStraight, playerName);
     }
 
-    public void insertValueRoyaleStraight(String royaleStraight, String playerName) {
+    public void insertValueRoyaleStraight(int royaleStraight, String playerName) {
         yatzyRepository.insertValueRoyaleStraight(royaleStraight, playerName);
     }
 
-    public void insertValueFullHouse(String fullHouse, String playerName) {
+    public void insertValueFullHouse(int fullHouse, String playerName) {
         yatzyRepository.insertValueFullHouse(fullHouse, playerName);
     }
 
-    public void insertValueChance(String chance, String playerName) {
+    public void insertValueChance(int chance, String playerName) {
         yatzyRepository.insertValueChance(chance, playerName);
     }
 
-    public void insertValueYatzy(String yatzy, String playerName) {
+    public void insertValueYatzy(int yatzy, String playerName) {
         yatzyRepository.insertValueYatzy(yatzy, playerName);
     }
 
-    public void insertValueThreeOfAKind(String threeOfAKind, String playerName) {
+    public void insertValueThreeOfAKind(int threeOfAKind, String playerName) {
         yatzyRepository.insertValueThreeOfAKind(threeOfAKind, playerName);
     }
 
-    public void insertValueFourOfAKind(String fourOfAKind, String playerName) {
+    public void insertValueFourOfAKind(int fourOfAKind, String playerName) {
         yatzyRepository.insertValueFourOfAKind(fourOfAKind, playerName);
     }
 
-    public void insertValueTwoXThree(String twoXThree, String playerName) {
+    public void insertValueTwoXThree(int twoXThree, String playerName) {
         yatzyRepository.insertValueTwoXThree(twoXThree, playerName);
+    }
+
+    public void updateSum(int value, String playerName) {
+        yatzyRepository.updateSum(value, playerName);
+    }
+
+    public void updateTotal(int value, String playerName) {
+        yatzyRepository.updateTotal(value, playerName);
+    }
+
+    public void bonus(String playerName) {
+        yatzyRepository.bonus(playerName);
     }
 }

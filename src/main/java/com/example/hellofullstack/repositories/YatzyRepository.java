@@ -84,21 +84,23 @@ public class YatzyRepository {
         jdbcTemplate.update(query);
     }
 
-    public void insertPlayer1(String playerName, String ones, String twos, String threes,
-                              String fours, String fives, String sixes, String onePair,
-                              String twoPair, String threePair, String threeOfKind, String fourOfKind,
-                              String twoTimesThree, String littleStraight, String mediumStraight,
-                              String royaleStraight, String fullHouse, String chance, String yatzy) {
+    public void insertPlayer1(String playerName, int ones, int twos, int threes,
+                              int fours, int fives, int sixes, int sum, int bonus, int onePair,
+                              int twoPair, int threePair, int threeOfKind, int fourOfKind,
+                              int twoTimesThree, int littleStraight, int mediumStraight,
+                              int royaleStraight, int fullHouse, int chance, int yatzy, int total) {
 
         String query = "insert into player(player_name, ones, twos, threes, fours, fives, " +
-                "sixes, one_pair, two_pair, three_pair, three_of_a_kind, four_of_a_kind, " +
+                "sixes, sum, bonus, one_pair, two_pair, three_pair, three_of_a_kind, four_of_a_kind, " +
                 "two_x_three, little_straight, medium_straight, royale_straight, full_house, " +
-                "chance, yatzy) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+                "chance, yatzy, total) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+
         jdbcTemplate.update(query, playerName, ones, twos, threes, fours, fives, sixes,
-                onePair, twoPair, threePair, threeOfKind, fourOfKind, twoTimesThree,
-                littleStraight, mediumStraight, royaleStraight, fullHouse, chance, yatzy);
+               sum, bonus, onePair, twoPair, threePair, threeOfKind, fourOfKind, twoTimesThree,
+                littleStraight, mediumStraight, royaleStraight, fullHouse, chance, yatzy, total);
     }
 
+/*
     public void insertPlayer1(String playerName,
                               String ones,
                               String twos,
@@ -111,54 +113,56 @@ public class YatzyRepository {
         jdbcTemplate.update(query, playerName, ones, twos, threes, fours, fives, sixes);
     }
 
-    public void insertValue(String ones, String playerName) {
+ */
+
+    public void insertValue(int ones, String playerName) {
         String query = "update player " +
                 "set ones = ? " +
                 "where player_name = ?;";
         jdbcTemplate.update(query, ones, playerName);
     }
 
-    public void insertValue2(String twos, String playerName) {
+    public void insertValue2(int twos, String playerName) {
         String query = "update player " +
                 "set twos = ? " +
                 "where player_name = ?;";
         jdbcTemplate.update(query, twos, playerName);
     }
 
-    public void insertValue3(String threes, String playerName) {
+    public void insertValue3(int threes, String playerName) {
         String query = "update player " +
                 "set threes = ? " +
                 "where player_name = ?;";
         jdbcTemplate.update(query, threes, playerName);
     }
 
-    public void insertValue4(String fours, String playerName) {
+    public void insertValue4(int fours, String playerName) {
         String query = "update player " +
                 "set fours = ? " +
                 "where player_name = ?;";
         jdbcTemplate.update(query, fours, playerName);
     }
 
-    public void insertValue5(String fives, String playerName) {
+    public void insertValue5(int fives, String playerName) {
         String query = "update player " +
                 "set fives = ? " +
                 "where player_name = ?;";
         jdbcTemplate.update(query, fives, playerName);
     }
 
-    public void insertValue6(String sixes, String playerName) {
+    public void insertValue6(int sixes, String playerName) {
         String query = "update player " +
                 "set sixes = ? " +
                 "where player_name = ?;";
         jdbcTemplate.update(query, sixes, playerName);
     }
-    public void insertValueOnePair(String onePair, String playerName) {
+    public void insertValueOnePair(int onePair, String playerName) {
         String query = "update player " +
                 "set one_pair = ? " +
                 "where player_name = ?;";
         jdbcTemplate.update(query, onePair, playerName);
     }
-    public void insertValueTwoPair(String twoPair, String playerName) {
+    public void insertValueTwoPair(int twoPair, String playerName) {
         String query = "update player " +
                 "set two_pair = ? " +
                 "where player_name = ?;";
@@ -166,73 +170,95 @@ public class YatzyRepository {
     }
 
 
-    public void insertValueThreePair(String threePair, String playerName) {
+    public void insertValueThreePair(int threePair, String playerName) {
         String query = "update player " +
                 "set three_pair = ? " +
                 "where player_name = ?;";
         jdbcTemplate.update(query, threePair, playerName);
     }
-
-    public void insertValueLittleStraight(String littleStraight, String playerName) {
-        String query = "update player " +
-                "set little_straight = ? " +
-                "where player_name = ?;";
-        jdbcTemplate.update(query, littleStraight, playerName);
-    }
-
-    public void insertValueMediumStraight(String mediumStraight, String playerName) {
-        String query = "update player " +
-                "set medium_straight = ? " +
-                "where player_name = ?;";
-        jdbcTemplate.update(query, mediumStraight, playerName);
-    }
-
-    public void insertValueRoyaleStraight(String royaleStraight, String playerName) {
-        String query = "update player " +
-                "set royale_straight = ? " +
-                "where player_name = ?;";
-        jdbcTemplate.update(query, royaleStraight, playerName);
-    }
-
-    public void insertValueFullHouse(String fullHouse, String playerName) {
-        String query = "update player " +
-                "set full_house = ? " +
-                "where player_name = ?;";
-        jdbcTemplate.update(query, fullHouse, playerName);
-    }
-
-    public void insertValueChance(String chance, String playerName) {
-        String query = "update player " +
-                "set chance = ? " +
-                "where player_name = ?;";
-        jdbcTemplate.update(query, chance, playerName);
-    }
-
-    public void insertValueYatzy(String yatzy, String playerName) {
-        String query = "update player " +
-                "set yatzy = ? " +
-                "where player_name = ?;";
-        jdbcTemplate.update(query, yatzy, playerName);
-    }
-
-    public void insertValueThreeOfAKind(String threeOfAKind, String playerName) {
+    public void insertValueThreeOfAKind(int threeOfAKind, String playerName) {
         String query = "update player " +
                 "set three_of_a_kind = ? " +
                 "where player_name = ?;";
         jdbcTemplate.update(query, threeOfAKind, playerName);
     }
 
-    public void insertValueFourOfAKind(String fourOfAKind, String playerName) {
+    public void insertValueFourOfAKind(int fourOfAKind, String playerName) {
         String query = "update player " +
                 "set four_of_a_kind = ? " +
                 "where player_name = ?;";
         jdbcTemplate.update(query, fourOfAKind, playerName);
     }
 
-    public void insertValueTwoXThree(String twoXThree, String playerName) {
+    public void insertValueTwoXThree(int twoXThree, String playerName) {
         String query = "update player " +
                 "set two_x_three = ? " +
                 "where player_name = ?;";
         jdbcTemplate.update(query, twoXThree, playerName);
     }
+
+    public void insertValueLittleStraight(int littleStraight, String playerName) {
+        String query = "update player " +
+                "set little_straight = ? " +
+                "where player_name = ?;";
+        jdbcTemplate.update(query, littleStraight, playerName);
+    }
+
+    public void insertValueMediumStraight(int mediumStraight, String playerName) {
+        String query = "update player " +
+                "set medium_straight = ? " +
+                "where player_name = ?;";
+        jdbcTemplate.update(query, mediumStraight, playerName);
+    }
+
+    public void insertValueRoyaleStraight(int royaleStraight, String playerName) {
+        String query = "update player " +
+                "set royale_straight = ? " +
+                "where player_name = ?;";
+        jdbcTemplate.update(query, royaleStraight, playerName);
+    }
+
+    public void insertValueFullHouse(int fullHouse, String playerName) {
+        String query = "update player " +
+                "set full_house = ? " +
+                "where player_name = ?;";
+        jdbcTemplate.update(query, fullHouse, playerName);
+    }
+
+    public void insertValueChance(int chance, String playerName) {
+        String query = "update player " +
+                "set chance = ? " +
+                "where player_name = ?;";
+        jdbcTemplate.update(query, chance, playerName);
+    }
+
+    public void insertValueYatzy(int yatzy, String playerName) {
+        String query = "update player " +
+                "set yatzy = ? " +
+                "where player_name = ?;";
+        jdbcTemplate.update(query, yatzy, playerName);
+    }
+
+
+    public void updateSum(int value, String playerName) {
+        String query = "UPDATE player " +
+                "SET sum = sum + ? " +
+                "WHERE player_name = ?";
+        jdbcTemplate.update(query, value, playerName);
+    }
+
+    public void updateTotal(int value, String playerName) {
+        String query = "update player " +
+                        "set total = total + ? " +
+                        "where player_name = ?;";
+        jdbcTemplate.update(query, value, playerName);
+    }
+
+    public void bonus(String playerName) {
+        String query = "UPDATE player " +
+                "SET bonus = 50, total = total + 50 " +
+                "WHERE sum >= 84 AND player_name = ?";
+        jdbcTemplate.update(query, playerName);
+    }
+
 }
