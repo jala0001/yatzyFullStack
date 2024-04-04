@@ -36,6 +36,13 @@
 
             </form>
         </td>
+
+    </tr>
+</table>
+<hr>
+<table>
+    <tr>
+
         <td>
             <form action="/addScore5" method="post">
                 <input type="hidden" name="playerName" th:value="${yatzy.playerName}">
@@ -47,6 +54,95 @@
             <form action="/addScore6" method="post">
                 <input type="hidden" name="playerName" th:value="${yatzy.playerName}">
                 <td>6'ere</td><td><input type="text" name="sixes" th:value="${yatzy.sixes}"></td><td><button type="submit">Indsæt</button></td>
+            </form>
+        </td>
+        <td>
+            <form action="/addScoreOnePair" method="post">
+                <input type="hidden" name="playerName" th:value="${yatzy.playerName}">
+                <td>1 par</td><td><input type="text" name="onePair" th:value="${yatzy.onePair}"></td><td><button type="submit">Indsæt</button></td>
+            </form>
+        </td>
+        <td>
+            <form action="/addScoreTwoPair" method="post">
+                <input type="hidden" name="playerName" th:value="${yatzy.playerName}">
+                <td>2 par</td><td><input type="text" name="twoPair" th:value="${yatzy.twoPair}"></td><td><button type="submit">Indsæt</button></td>
+            </form>
+        </td>
+
+
+
+    </tr>
+</table>
+<hr>
+<table>
+    <tr>
+        <td>
+            <form action="/addScoreThreePair" method="post">
+                <input type="hidden" name="playerName" th:value="${yatzy.playerName}">
+                <td>3 par</td><td><input type="text" name="threePair" th:value="${yatzy.threePair}"></td><td><button type="submit">Indsæt</button></td>
+            </form>
+        </td>
+        <td>
+            <form action="/addScoreThreeOfAKind" method="post">
+                <input type="hidden" name="playerName" th:value="${yatzy.playerName}">
+                <td>3 ens</td><td><input type="text" name="threeOfAKind" th:value="${yatzy.threeOfAKind}"></td><td><button type="submit">Indsæt</button></td>
+            </form>
+        </td>
+        <td>
+            <form action="/addScoreFourOfAKind" method="post">
+                <input type="hidden" name="playerName" th:value="${yatzy.playerName}">
+                <td>4 ens</td><td><input type="text" name="fourOfAKind" th:value="${yatzy.fourOfAKind}"></td><td><button type="submit">Indsæt</button></td>
+            </form>
+        </td>
+
+        <td>
+            <form action="/addScoreTwoXThree" method="post">
+                <input type="hidden" name="playerName" th:value="${yatzy.playerName}">
+                <td>2 x 3</td><td><input type="text" name="twoXThree" th:value="${yatzy.twoXThree}"></td><td><button type="submit">Indsæt</button></td>
+            </form>
+        </td>
+
+
+        <td>
+            <form action="/addScoreLittleStraight" method="post">
+                <input type="hidden" name="playerName" th:value="${yatzy.playerName}">
+                <td>1-5</td><td><input type="text" name="littleStraight" th:value="${yatzy.littleStraight}"></td><td><button type="submit">Indsæt</button></td>
+            </form>
+        </td>
+
+    </tr>
+</table>
+<hr>
+<table>
+    <tr>
+        <td>
+            <form action="/addScoreMediumStraight" method="post">
+                <input type="hidden" name="playerName" th:value="${yatzy.playerName}">
+                <td>2-6</td><td><input type="text" name="mediumStraight" th:value="${yatzy.mediumStraight}"></td><td><button type="submit">Indsæt</button></td>
+            </form>
+        </td>
+        <td>
+            <form action="/addScoreRoyaleStraight" method="post">
+                <input type="hidden" name="playerName" th:value="${yatzy.playerName}">
+                <td>1-6</td><td><input type="text" name="royaleStraight" th:value="${yatzy.royaleStraight}"></td><td><button type="submit">Indsæt</button></td>
+            </form>
+        </td>
+        <td>
+            <form action="/addScoreFullHouse" method="post">
+                <input type="hidden" name="playerName" th:value="${yatzy.playerName}">
+                <td>Hus</td><td><input type="text" name="fullHouse" th:value="${yatzy.fullHouse}"></td><td><button type="submit">Indsæt</button></td>
+            </form>
+        </td>
+        <td>
+            <form action="/addScoreChance" method="post">
+                <input type="hidden" name="playerName" th:value="${yatzy.playerName}">
+                <td>Chance</td><td><input type="text" name="chance" th:value="${yatzy.chance}"></td><td><button type="submit">Indsæt</button></td>
+            </form>
+        </td>
+        <td>
+            <form action="/addScoreYatzy" method="post">
+                <input type="hidden" name="playerName" th:value="${yatzy.playerName}">
+                <td>Yatzy</td><td><input type="text" name="yatzy" th:value="${yatzy.yatzy}"></td><td><button type="submit">Indsæt</button></td>
             </form>
         </td>
     </tr>

@@ -15,7 +15,7 @@ import java.util.Random;
 
 @Controller
 public class YatzyController {
-    int rollCount = 1;
+    int rollCount;
     List<Integer> chosenNumbers = new ArrayList<>();
     int amountOfDices = 6;
     Random random = new Random();
@@ -34,8 +34,22 @@ public class YatzyController {
                               @RequestParam String threes,
                               @RequestParam String fours,
                               @RequestParam String fives,
-                              @RequestParam String sixes) {
-        yatzyService.insertPlayer1(playerName, ones, twos, threes, fours, fives, sixes);
+                              @RequestParam String sixes,
+                              @RequestParam String onePair,
+                              @RequestParam String twoPair,
+                              @RequestParam String threePair,
+                              @RequestParam String threeOfAKind,
+                              @RequestParam String fourOfAKind,
+                              @RequestParam String twoXThree,
+                              @RequestParam String littleStraight,
+                              @RequestParam String mediumStraight,
+                              @RequestParam String royaleStraight,
+                              @RequestParam String fullHouse,
+                              @RequestParam String chance,
+                              @RequestParam String yatzy) {
+        yatzyService.insertPlayer1(playerName, ones, twos, threes, fours, fives, sixes,
+                onePair, twoPair, threePair, threeOfAKind, fourOfAKind, twoXThree,
+                littleStraight, mediumStraight, royaleStraight, fullHouse, chance, yatzy);
         return "redirect:/";
     }
 
@@ -56,6 +70,7 @@ public class YatzyController {
         yatzyService.insertValue2(twos, playerName);
         return "redirect:/";
     }
+
     @PostMapping("/addScore3")
     public String addScore3(@RequestParam String threes, @RequestParam String playerName) {
         yatzyService.insertValue3(threes, playerName);
@@ -73,9 +88,79 @@ public class YatzyController {
         yatzyService.insertValue5(fives, playerName);
         return "redirect:/";
     }
+
     @PostMapping("/addScore6")
     public String addScore6(@RequestParam String sixes, @RequestParam String playerName) {
         yatzyService.insertValue6(sixes, playerName);
+        return "redirect:/";
+    }
+
+    @PostMapping("/addScoreOnePair")
+    public String addScoreOnePair(@RequestParam String onePair, @RequestParam String playerName) {
+        yatzyService.insertValueOnePair(onePair, playerName);
+        return "redirect:/";
+    }
+
+    @PostMapping("/addScoreTwoPair")
+    public String addScoreTwoPair(@RequestParam String twoPair, @RequestParam String playerName) {
+        yatzyService.insertValueTwoPair(twoPair, playerName);
+        return "redirect:/";
+    }
+
+    @PostMapping("/addScoreThreePair")
+    public String addScoreThreePair(@RequestParam String threePair, @RequestParam String playerName) {
+        yatzyService.insertValueThreePair(threePair, playerName);
+        return "redirect:/";
+    }
+    @PostMapping("/addScoreThreeOfAKind")
+    public String addScoreThreeOfAKind(@RequestParam String threeOfAKind, @RequestParam String playerName) {
+        yatzyService.insertValueThreeOfAKind(threeOfAKind, playerName);
+        return "redirect:/";
+    }
+    @PostMapping("/addScoreFourOfAKind")
+    public String addScoreFourOfAKind(@RequestParam String fourOfAKind, @RequestParam String playerName) {
+        yatzyService.insertValueFourOfAKind(fourOfAKind, playerName);
+        return "redirect:/";
+    }
+    @PostMapping("/addScoreTwoXThree")
+    public String addScoreTwoXThree(@RequestParam String twoXThree, @RequestParam String playerName) {
+        yatzyService.insertValueTwoXThree(twoXThree, playerName);
+        return "redirect:/";
+    }
+
+    @PostMapping("/addScoreLittleStraight")
+    public String addScoreLittleStraight(@RequestParam String littleStraight, @RequestParam String playerName) {
+        yatzyService.insertValueLittleStraight(littleStraight, playerName);
+        return "redirect:/";
+    }
+
+    @PostMapping("/addScoreMediumStraight")
+    public String addScoreMediumStraight(@RequestParam String mediumStraight, @RequestParam String playerName) {
+        yatzyService.insertValueMediumStraight(mediumStraight, playerName);
+        return "redirect:/";
+    }
+
+    @PostMapping("/addScoreRoyaleStraight")
+    public String addScoreRoyaleStraight(@RequestParam String royaleStraight, @RequestParam String playerName) {
+        yatzyService.insertValueRoyaleStraight(royaleStraight, playerName);
+        return "redirect:/";
+    }
+
+    @PostMapping("/addScoreFullHouse")
+    public String addScoreFullHouse(@RequestParam String fullHouse, @RequestParam String playerName) {
+        yatzyService.insertValueFullHouse(fullHouse, playerName);
+        return "redirect:/";
+    }
+
+    @PostMapping("/addScoreChance")
+    public String addScoreChance(@RequestParam String chance, @RequestParam String playerName) {
+        yatzyService.insertValueChance(chance, playerName);
+        return "redirect:/";
+    }
+
+    @PostMapping("/addScoreYatzy")
+    public String addScoreYatzy(@RequestParam String yatzy, @RequestParam String playerName) {
+        yatzyService.insertValueYatzy(yatzy, playerName);
         return "redirect:/";
     }
 
@@ -88,6 +173,7 @@ public class YatzyController {
     @GetMapping("/rollDices")
     public String rollDices(Model model) {
         if (amountOfDices == 6) {
+            rollCount = 1;
             int value1 = random.nextInt(6) + 1;
             int value2 = random.nextInt(6) + 1;
             int value3 = random.nextInt(6) + 1;
@@ -98,11 +184,15 @@ public class YatzyController {
         }
         model.addAttribute("chosenNumbers", chosenNumbers);
         model.addAttribute(yatzyService.getDices());
-    return "home/rollDices";
+        return "home/rollDices";
     }
 
     @GetMapping("/rollDices2")
     public String rollDices2(Model model) {
+        if (rollCount >= 3) {
+            return "redirect:/"; // Returner til hovedsiden, hvis brugeren allerede har slået tre gange
+        }
+
         yatzyService.deletePreviousRoll();
         rollCount++;
 
@@ -116,13 +206,24 @@ public class YatzyController {
             remainingDices[i] = 0;
         }
 
-
         yatzyService.diceRoll(remainingDices[0], remainingDices[1], remainingDices[2], remainingDices[3], remainingDices[4], remainingDices[5]);
 
         model.addAttribute("chosenNumbers", chosenNumbers);
         model.addAttribute(yatzyService.getDices());
         model.addAttribute("rollCount", rollCount);
+
         return "home/rollDices";
+    }
+
+
+
+    @PostMapping("/reset")
+    public String reset() {
+        rollCount = 1;
+        yatzyService.deletePreviousRoll();
+        chosenNumbers.clear();
+        amountOfDices = 6;
+        return "redirect:/";
     }
 
 
@@ -131,11 +232,9 @@ public class YatzyController {
         chosenNumbers.add(value);
         amountOfDices--;
         yatzyService.deleteDice(diceNumber);
+
         return "redirect:/rollDices";
     }
-
-
-
 
 
 }

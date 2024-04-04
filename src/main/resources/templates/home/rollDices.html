@@ -85,12 +85,14 @@
 <br>
 <br>
 <td>
-<form action="rollDices2" method="get" th:if="${rollCount < 3}">
-    <button type="submit">Slå igen!</button>
-</form>
+    <form action="rollDices2" method="get">
+        <button type="submit" th:if="${rollCount < 3}">Slå igen!</button>
+    </form>
+    <span th:if="${rollCount < 3}">Det er slag nr <span th:text="${rollCount}"></span></span>
 </td>
+
 <td>
-    <form action="/" method="get">
+    <form action="/reset" method="post">
         <button type="submit">Afslut tur og indsæt score</button>
     </form>
 </td>
