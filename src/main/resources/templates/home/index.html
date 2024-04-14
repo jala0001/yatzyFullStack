@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title>Yatzy startside</title>
 </head>
-<body>
+<body style="background-color: green;">
 <h1>Yatzy!</h1>
 <form action="/typePlayer1" method="get">
     <button>Tilføj spiller</button>
@@ -19,28 +19,28 @@
     <td>Sum</td><td>Bonus</td><td>1par</td><td>2par</td><td>3par</td><td>3ens</td><td>4ens</td><td>2x3</td><td>1-5</td>
     <td>2-6</td><td>1-6</td><td>Hus</td><td>Chance</td><td>Yatzy</td><td>Total</td></thead>
     <tr th:each="yatzy : ${players}">
-    <td th:text="${yatzy.playerName}"></td>
-    <td th:text="${yatzy.ones}"></td>
-    <td th:text="${yatzy.twos}"></td>
-    <td th:text="${yatzy.threes}"></td>
-    <td th:text="${yatzy.fours}"></td>
-    <td th:text="${yatzy.fives}"></td>
-    <td th:text="${yatzy.sixes}"></td>
-    <td th:text="${yatzy.sum}"></td>
-    <td th:text="${yatzy.bonus}"></td>
-    <td th:text="${yatzy.onePair}"></td>
-    <td th:text="${yatzy.twoPair}"></td>
-    <td th:text="${yatzy.threePair}"></td>
-    <td th:text="${yatzy.threeOfAKind}"></td>
-    <td th:text="${yatzy.fourOfAKind}"></td>
-    <td th:text="${yatzy.twoXThree}"></td>
-    <td th:text="${yatzy.littleStraight}"></td>
-    <td th:text="${yatzy.mediumStraight}"></td>
-    <td th:text="${yatzy.royaleStraight}"></td>
-    <td th:text="${yatzy.fullHouse}"></td>
-    <td th:text="${yatzy.chance}"></td>
-    <td th:text="${yatzy.yatzy}"></td>
-    <td th:text="${yatzy.total}"></td>
+        <td th:text="${yatzy.playerName}"></td>
+        <td th:text="${yatzy.ones}"></td>
+        <td th:text="${yatzy.twos}"></td>
+        <td th:text="${yatzy.threes}"></td>
+        <td th:text="${yatzy.fours}"></td>
+        <td th:text="${yatzy.fives}"></td>
+        <td th:text="${yatzy.sixes}"></td>
+        <td th:text="${yatzy.sum}"></td>
+        <td th:text="${yatzy.bonus}"></td>
+        <td th:text="${yatzy.onePair}"></td>
+        <td th:text="${yatzy.twoPair}"></td>
+        <td th:text="${yatzy.threePair}"></td>
+        <td th:text="${yatzy.threeOfAKind}"></td>
+        <td th:text="${yatzy.fourOfAKind}"></td>
+        <td th:text="${yatzy.twoXThree}"></td>
+        <td th:text="${yatzy.littleStraight}"></td>
+        <td th:text="${yatzy.mediumStraight}"></td>
+        <td th:text="${yatzy.royaleStraight}"></td>
+        <td th:text="${yatzy.fullHouse}"></td>
+        <td th:text="${yatzy.chance}"></td>
+        <td th:text="${yatzy.yatzy}"></td>
+        <td th:text="${yatzy.total}"></td>
         <td>
             <form action="/addScore" method="get">
                 <input type="hidden" name="playerName" th:value="${yatzy.playerName}">
@@ -52,17 +52,13 @@
 
 </table>
 <hr>
-
-<hr>
 <br>
 <br>
 
 <form action="/rollDices" method="get">
     <button type="submit">Slag 1!</button>
 </form>
-
-
-
+<img src="/images/terninger.jpg" alt="Eksempelbillede">
 
 
 </body>
